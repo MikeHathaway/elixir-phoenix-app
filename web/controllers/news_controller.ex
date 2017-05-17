@@ -5,9 +5,8 @@ defmodule ElixirWebApp.NewsController do
     news = [
       %{site: "The New York Times",
         url: "https://www.nytimes.com/"
-      },
+      }
     ]
-
     json conn, news
   end
 

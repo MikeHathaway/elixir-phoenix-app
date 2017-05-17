@@ -30,7 +30,8 @@ defmodule ElixirWebApp.Router do
   scope "/api", ElixirWebApp do
     pipe_through :api
 
-    resources "/news", NewsController
+    # resources instead of get
+    get "/news", NewsController, :retreiveNews
   end
 
 end
