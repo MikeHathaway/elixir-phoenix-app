@@ -20,7 +20,17 @@ defmodule ElixirWebApp.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ElixirWebApp do
-  #   pipe_through :api
-  # end
+  scope "/", ElixirWebApp do
+    # :api for simply sending and receiving JSON
+    pipe_through :browser
+
+    get "/testPage", PageController, :testPage
+  end
+
+  scope "/api", ElixirWebApp do
+    pipe_through :api
+
+    resources "/news", NewsController
+  end
+
 end

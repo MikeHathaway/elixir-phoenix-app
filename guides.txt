@@ -1,0 +1,6 @@
+https://blog.codeship.com/an-introduction-to-apis-with-phoenix/
+
+http://www.phoenixframework.org/docs/routing
+
+
+https://becoming-functional.com/building-a-rest-api-with-phoenix-and-elixir-b12dcec302c5

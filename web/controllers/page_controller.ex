@@ -4,4 +4,8 @@ defmodule ElixirWebApp.PageController do
   def index(conn, _params) do
     render conn, "index.html"
   end
+
+  def testPage(conn, _params) do
+    render conn, "testPage.html"
+  end
 end
