@@ -4,3 +4,17 @@ http://www.phoenixframework.org/docs/routing
 
 
 https://becoming-functional.com/building-a-rest-api-with-phoenix-and-elixir-b12dcec302c5
+
+
+https://mlusiak.com/2017/04/16/calling-an-external-api-from-phoenix-app/
+
+
+https://blog.diacode.com/trello-clone-with-phoenix-and-react-pt-5
+SEEDING DATABASE
+
+
+http://theerlangelist.com/article/beyond_taskasync
+async/await requests to external apis example
+
+
+https://hackernoon.com/elixir-console-application-with-json-parsing-lets-print-to-console-b701abf1cb14
