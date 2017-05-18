@@ -9,6 +9,9 @@ https://becoming-functional.com/building-a-rest-api-with-phoenix-and-elixir-b12d
 https://mlusiak.com/2017/04/16/calling-an-external-api-from-phoenix-app/
 
 
+https://hexdocs.pm/ecto/getting-started.html
+Building ecto migration files
+
 https://blog.diacode.com/trello-clone-with-phoenix-and-react-pt-5
 SEEDING DATABASE
 

@@ -11,13 +11,14 @@ defmodule ElixirWebApp.NewsController do
   end
 
   # url = "https://newsapi.org/v1/articles?source=" <> params <> "&apiKey=" <> apiKey
+  # default Param: // "techcrunch"
 
-  def getExternalNews(conn, _params) do
-    json conn, fetchNews()
+  def getExternalNews(conn, %{"source" => source}) do
+    json conn, fetchNews(source)
   end
 
-  defp fetchNews() do
-    api_endpoint()
+  defp fetchNews(source) do
+    api_endpoint(source)
     |> HTTPoison.get
     |> handle_json
     |> Tuple.to_list
@@ -28,8 +29,8 @@ defmodule ElixirWebApp.NewsController do
     {:ok, Poison.Parser.parse!(body)}
   end
 
-  defp api_endpoint() do
-    "https://newsapi.org/v1/articles?source=techcrunch&apiKey=1e710731cf2241bdb53b92210117782c"
+  defp api_endpoint(source) do
+    "https://newsapi.org/v1/articles?source=#{source}&apiKey=1e710731cf2241bdb53b92210117782c"
   end
 
 end
