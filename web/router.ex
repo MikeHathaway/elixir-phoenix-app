@@ -26,6 +26,14 @@ defmodule ElixirWebApp.Router do
     get "/testPage", PageController, :testPage
   end
 
+  scope "/", ElixirWebApp do
+    pipe_through :browser
+
+    resources "/articles", ArticleController
+  end
+
+  # Should add an "/user" resource in the "/" scope
+
   # retreivs static information from model
   scope "/api", ElixirWebApp do
     pipe_through :api

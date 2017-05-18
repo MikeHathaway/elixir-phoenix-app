@@ -21,3 +21,10 @@ async/await requests to external apis example
 
 
 https://hackernoon.com/elixir-console-application-with-json-parsing-lets-print-to-console-b701abf1cb14
+
+
+
+http://www.phoenixframework.org/docs/views
+
+
+TODO: Finish article feed, figure out how to insert data from article request into the database

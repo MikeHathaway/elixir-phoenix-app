@@ -23,14 +23,25 @@ defmodule ElixirWebApp.NewsController do
     |> handle_json
     |> Tuple.to_list
     |> Poison.encode!
+    #|> insert_article #adds returned articles to the database
+  end
+
+  defp api_endpoint(source) do
+    "https://newsapi.org/v1/articles?source=#{source}&apiKey=1e710731cf2241bdb53b92210117782c"
   end
 
   defp handle_json({:ok, %{status_code: 200, body: body}}) do
     {:ok, Poison.Parser.parse!(body)}
   end
 
-  defp api_endpoint(source) do
-    "https://newsapi.org/v1/articles?source=#{source}&apiKey=1e710731cf2241bdb53b92210117782c"
+  defp insert_article({:ok, }) do
+    
   end
+
+  # defp insert_article(articles) do
+  #   mapped_articles = Enum.each(articles, fn (article) ->  %ElixirWebApp.Article{article: article} end)
+  #   IO.puts mapped_articles
+  #   Enum.each(mapped_articles, fn (article) -> ElixirWebApp.Repo.insert(article) end)
+  # end
 
 end
