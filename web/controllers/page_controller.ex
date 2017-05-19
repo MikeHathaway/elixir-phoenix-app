@@ -20,12 +20,13 @@ defmodule ElixirWebApp.PageController do
   # Inspired by:
     # https://medium.com/@paulfedory/how-and-why-to-store-images-in-your-database-with-elixir-eb80133eb945
   def create(conn, %{"article" => params}) do
-    changeset = Article.changeset(%Article{}, params)
-    case Repo.insert(changeset) do
-      {:ok, article} ->
-        render conn, "article_index.html"
-      {:error, changeset} ->
-        render conn, "new.html", changeset: changeset
+    # changeset = Article.changeset(%Article{}, params)
+    # case Repo.insert(changeset) do
+    #   {:ok, article} ->
+    #     render conn, "article_index.html"
+    #   {:error, changeset} ->
+    #     render conn, "new.html", changeset: changeset
+    # end
   end
 
   def update(conn, _params) do

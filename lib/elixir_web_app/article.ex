@@ -6,7 +6,7 @@ defmodule ElixirWebApp.Article do
     field :url, :string
     field :title, :string
     # field :publishedAt, :utc_datetime
-    field :descrption, :string
+    field :description, :string
     field :author, :string
   end
 end

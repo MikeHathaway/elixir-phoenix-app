@@ -7,7 +7,7 @@ defmodule ElixirWebApp.Repo.Migrations.Articles do
       add :url, :string
       add :title, :string
       # add :publishedAt, :utc_datetime
-      add :descrption, :string
+      add :description, :string
       add :author, :string
     end
   end
