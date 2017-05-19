@@ -19,17 +19,10 @@ defmodule ElixirWebApp.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
   scope "/", ElixirWebApp do
     pipe_through :browser
 
-    get "/testPage", PageController, :testPage
-  end
-
-  scope "/", ElixirWebApp do
-    pipe_through :browser
-
-    resources "/articles", ArticleController
+    resources "/articles", PageController
   end
 
   # Should add an "/user" resource in the "/" scope
@@ -39,7 +32,7 @@ defmodule ElixirWebApp.Router do
     pipe_through :api
 
     # resources provides the full set of CRUD actions
-    get "/news", NewsController, :getStaticNews
+    get "/news/static", NewsController, :getStaticNews
   end
 
   # calls the external news api

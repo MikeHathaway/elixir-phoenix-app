@@ -3,3 +3,5 @@
 <ul>
   <li>List of articles will go here</li>
 </ul>
+
+<input type="text" name="search" placeholder="Search..">
