@@ -2,7 +2,9 @@ defmodule ElixirWebApp.PageController do
   use ElixirWebApp.Web, :controller
 
   def index(conn, _params) do
-    render conn, "article_index.html"
+    conn
+    |> assign(:quotes, Repo.all(ElixirWebApp.Article))
+    |> render("article_index.html")
   end
 
   def edit(conn, _params) do
@@ -13,20 +15,19 @@ defmodule ElixirWebApp.PageController do
     render conn, "new.html"
   end
 
-  def show(conn, _params) do
-    render conn, "single_article.html"
+  def show(conn, %{"id" => id}) do
+    {id, _} = Integer.parse(id)
+    conn
+    |> assign(:article, Repo.get(ElixirWebApp.Article, id))
+    |> render("single_article.html")
   end
 
-  # Inspired by:
-    # https://medium.com/@paulfedory/how-and-why-to-store-images-in-your-database-with-elixir-eb80133eb945
-  def create(conn, %{"article" => params}) do
-    # changeset = Article.changeset(%Article{}, params)
-    # case Repo.insert(changeset) do
-    #   {:ok, article} ->
-    #     render conn, "article_index.html"
-    #   {:error, changeset} ->
-    #     render conn, "new.html", changeset: changeset
-    # end
+  # http://phoenix.thefirehoseproject.com/5.html
+  def create(conn, %{"urlToImage" => urlToImage, "url" => url, "title" => title, "description" => description, "author" => author}) do
+    new_article = %ElixirWebApp.Article{urlToImage: urlToImage, url: url, title: title, description: description, author: author}
+    Repo.insert(new_article)
+
+    render conn, "article_index.html"
   end
 
   def update(conn, _params) do

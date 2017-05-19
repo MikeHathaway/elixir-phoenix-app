@@ -5,3 +5,8 @@
 </ul>
 
 <input type="text" name="search" placeholder="Search..">
+
+<%= for article <- @articles do %>
+  <p><%= article.title %></p>
+
+<% end %>

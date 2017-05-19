@@ -1,5 +1,6 @@
 <!-- http://phoenix.thefirehoseproject.com/5.html -->
 
+<!-- form action="/articles" -->
 <form action="/articles" method="POST">
   <div class="form-group">
     <label for="urlToImage">urlToImage</label>
@@ -21,5 +22,6 @@
     <label for="author">Author</label>
     <input type="text" class="form-control" name="author" id="author" placeholder="">
   </div>
+  <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
   <input class="btn btn-primary" type="submit">
 </form>
