@@ -29,6 +29,8 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
+      <input type="text" name="search" placeholder="Search..">
+
       <article><%= article() %></article>
 
     </div> <!-- /container -->
