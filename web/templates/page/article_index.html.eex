@@ -6,4 +6,5 @@
 
 <%= for article <- @articles do %>
   <a href="articles/<%= article.id %>"><p><%= article.title %></p></a>
+  <img src="<%= article.urlToImage %>">
 <% end %>

@@ -1,8 +1,12 @@
 
+<aside>
+  <img src="<%= @article.urlToImage %>">
+</aside>
+
 <h1><%= @article.title %></h1>
 <h4><%= @article.author %></h4>
 
 <p><%= @article.description %></p>
 
-<input class="btn btn-danger" type="submit" value="Delete">
-<input class="btn btn-primary" type="submit" value="Edit">
+<input class="btn btn-danger" type="submit" value="Delete Article">
+<a href="/articles/<%= @article.id %>/edit" class="btn btn-primary">Edit Article</a>
