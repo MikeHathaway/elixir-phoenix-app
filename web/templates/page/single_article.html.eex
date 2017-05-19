@@ -1,1 +1,8 @@
-<h1>Specified article will go here</h1>
+
+<h1><%= @article.title %></h1>
+<h4><%= @article.author %></h4>
+
+<p><%= @article.description %></p>
+
+<input class="btn btn-danger" type="submit" value="Delete">
+<input class="btn btn-primary" type="submit" value="Edit">

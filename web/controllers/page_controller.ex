@@ -34,8 +34,11 @@ defmodule ElixirWebApp.PageController do
     render conn, "update_article.html"
   end
 
-  def delete(conn, _params) do
-    render conn, "delete_article.html"
+  def delete(conn, %{"id" => id}) do
+    {id, _} = Integer.parse(id)
+    article = Repo.get(ElixirWebApp.Article, id)
+    Repo.delete(article)
+    render conn, "article_index.html"
   end
 
 end

@@ -1,6 +1,8 @@
 <h1>Mike's News Service</h1>
 
 <input type="text" name="search" placeholder="Search articles">
+<a href="/articles/new"><input class="btn btn-primary" type="submit" value="Add an Article"></a>
+
 
 <%= for article <- @articles do %>
   <a href="articles/<%= article.id %>"><p><%= article.title %></p></a>
