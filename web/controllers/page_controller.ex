@@ -7,8 +7,11 @@ defmodule ElixirWebApp.PageController do
     |> render("article_index.html")
   end
 
-  def edit(conn, _params) do
-    render conn, "edit.html"
+  def edit(conn, %{"id" => id}) do
+    {id, _} = Integer.parse(id)
+    conn
+    |> assign(:article, Repo.get(ElixirWebApp.Article, id))
+    |> render("edit.html")
   end
 
   def new(conn, _params) do
@@ -23,7 +26,7 @@ defmodule ElixirWebApp.PageController do
   end
 
   # http://phoenix.thefirehoseproject.com/5.html
-  def create(conn, %{"urlToImage" => urlToImage, "url" => url, "title" => title, "description" => description, "author" => author}) do
+  def create(conn, %{"article" => %{"urlToImage" => urlToImage, "url" => url, "title" => title, "description" => description, "author" => author}}) do
     new_article = %ElixirWebApp.Article{urlToImage: urlToImage, url: url, title: title, description: description, author: author}
     Repo.insert(new_article)
 

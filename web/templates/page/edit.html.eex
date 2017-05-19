@@ -3,24 +3,24 @@
 <form action="/articles" method="POST">
   <div class="form-group">
     <label for="urlToImage">urlToImage</label>
-    <input type="text" class="form-control" name="urlToImage" id="urlToImage" placeholder="">
+    <input type="text" class="form-control" name="urlToImage" id="urlToImage" value="<%= @article.urlToImage %>">
   </div>
   <div class="form-group">
     <label for="url">url</label>
-    <input type="text" class="form-control" name="url" id="url" placeholder="">
+    <input type="text" class="form-control" name="url" id="url" value="<%= @article.url %>">
   </div>
   <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" class="form-control" name="title" id="title" placeholder="">
+    <input type="text" class="form-control" name="title" id="title" value="<%= @article.title %>">
   </div>
   <div class="form-group">
     <label for="descrption">Descrption</label>
-    <input type="text" class="form-control" name="descrption" id="descrption" placeholder="">
+    <input type="text" class="form-control" name="descrption" id="descrption" value="<%= @article.description %>">
   </div>
   <div class="form-group">
     <label for="author">Author</label>
-    <input type="text" class="form-control" name="author" id="author" placeholder="">
+    <input type="text" class="form-control" name="author" id="author" value="<%= @article.author %>">
   </div>
   <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
-  <input class="btn btn-primary" type="submit">
+  <input class="btn btn-primary" type="submit" value="Update">
 </form>
