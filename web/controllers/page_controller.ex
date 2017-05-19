@@ -3,7 +3,7 @@ defmodule ElixirWebApp.PageController do
 
   def index(conn, _params) do
     conn
-    |> assign(:quotes, Repo.all(ElixirWebApp.Article))
+    |> assign(:articles, Repo.all(ElixirWebApp.Article))
     |> render("article_index.html")
   end
 

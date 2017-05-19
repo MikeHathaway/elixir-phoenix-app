@@ -1,12 +1,7 @@
-<h1>Articles of Interest:</h1>
+<h1>Mike's News Service</h1>
 
-<ul>
-  <li>List of articles will go here</li>
-</ul>
-
-<input type="text" name="search" placeholder="Search..">
+<input type="text" name="search" placeholder="Search articles">
 
 <%= for article <- @articles do %>
-  <p><%= article.title %></p>
-
+  <a href="articles/<%= article.id %>"><p><%= article.title %></p></a>
 <% end %>
