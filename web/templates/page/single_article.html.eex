@@ -8,5 +8,9 @@
 
 <p><%= @article.description %></p>
 
-<input class="btn btn-danger" type="submit" value="Delete Article">
+<form method="POST">
+  <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+  <input name="_method" class="btn btn-danger" type="submit" value="delete">
+</form>
+
 <a href="/articles/<%= @article.id %>/edit" class="btn btn-primary">Edit Article</a>

@@ -22,7 +22,7 @@ defmodule ElixirWebApp.NewsController do
     |> HTTPoison.get
     |> handle_json
     |> Tuple.to_list
-    # |> Poison.encode!
+    #|> Poison.encode!
     #|> insert_article #adds returned articles to the database
   end
 
@@ -32,10 +32,6 @@ defmodule ElixirWebApp.NewsController do
 
   defp handle_json({:ok, %{status_code: 200, body: body}}) do
     {:ok, Poison.Parser.parse!(body)}
-  end
-
-  defp insert_article({:ok, }) do
-
   end
 
   # defp insert_article(articles) do

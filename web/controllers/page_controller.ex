@@ -25,23 +25,25 @@ defmodule ElixirWebApp.PageController do
     |> render("single_article.html")
   end
 
-  # http://phoenix.thefirehoseproject.com/5.html
   def create(conn, %{"article" => %{"urlToImage" => urlToImage, "url" => url, "title" => title, "description" => description, "author" => author}}) do
     new_article = %ElixirWebApp.Article{urlToImage: urlToImage, url: url, title: title, description: description, author: author}
     Repo.insert(new_article)
-
-    render conn, "article_index.html"
+    redirect conn, to: page_path(conn, :index)
   end
 
-  def update(conn, _params) do
-    render conn, "update_article.html"
+  def update(conn, %{"id" => id, "article" => %{"urlToImage" => urlToImage, "url" => url, "title" => title, "description" => description, "author" => author}}) do
+    {id, _} = Integer.parse(id)
+    curr_article = Repo.get(ElixirWebApp.Article, id)
+    curr_article = %{curr_article | urlToImage: urlToImage, url: url, title: title, description: description, author: author}
+    Repo.update(curr_article)
+    redirect conn, to: page_path(conn, :show, curr_article.id)
   end
 
   def delete(conn, %{"id" => id}) do
     {id, _} = Integer.parse(id)
     article = Repo.get(ElixirWebApp.Article, id)
     Repo.delete(article)
-    render conn, "article_index.html"
+    redirect conn, to: page_path(conn, :index)
   end
 
 end
