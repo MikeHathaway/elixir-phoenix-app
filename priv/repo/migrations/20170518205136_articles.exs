@@ -6,7 +6,7 @@ defmodule ElixirWebApp.Repo.Migrations.Articles do
       add :urlToImage, :string
       add :url, :string
       add :title, :string
-      add :publishedAt, :utc_datetime
+      # add :publishedAt, :utc_datetime
       add :descrption, :string
       add :author, :string
     end
